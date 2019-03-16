@@ -12,7 +12,7 @@
                 <tr>
                     <td>{{$product->name}}</td>
                     <td>{{$product->art}}</td>
-                    <td><a href="{{route("edit",['id'=>$product->id])}}"></a></td>
+                    <td><a class="btn-primary" href="{{route("edit",['id'=>$product->id])}}">Редактировать</a></td>
                 </tr>
             @endforeach
         </table>
