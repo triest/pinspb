@@ -6,7 +6,7 @@
         {{ csrf_field() }}
         <div class="form-group">
             <label for="name">Имя:</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Название продукта" required>
+            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="Название продукта" required>
         </div>
         @if($errors->has('name'))
             <font color="red"><p>  {{$errors->first('name')}}</p></font>
@@ -14,11 +14,11 @@
 
         <div class="form-group">
             <label for="art">Артикул:</label>
-            <input type="text" class="form-control" id="art" name="art" placeholder="Артикул продукта" min="10"
+            <input type="text" class="form-control" id="art" name="art" value="{{ old('art') }}" placeholder="Артикул продукта" min="10"
                    required>
         </div>
         @if($errors->has('art'))
-            <font color="red"><p>  {{$errors->first('name')}}</p></font>
+            <font color="red"><p>  {{$errors->first('art')}}</p></font>
         @endif
 
 

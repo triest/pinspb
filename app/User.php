@@ -40,8 +40,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function user()
+    public function role()
     {
-        return $this->hasOne('App\Role');
+        return $this->belongsTo('App\Role');
     }
+
+    public function isAdmin()
+    {
+        $name = $this->role()->first()->name;
+        if ($name == "admin") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

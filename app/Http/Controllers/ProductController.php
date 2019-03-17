@@ -49,17 +49,21 @@ class ProductController extends Controller
             'art' => 'max:100|unique:products',
         ]);
 
+
         $product = Eloquent::select('id', 'name', 'art')->where('id', $request->id)->first();
         if ($product != null) {
             $product->name = $request->name;
+            $user = Auth::user();
+            $role = $user->role()->first();
+            if ($role->name == admin) {
+                $product->art = $request->art;
+            }
             $product->save();
-            return  redirect('/');
-        }
-        else{
-            return  redirect('/');
+
+            return redirect('/');
+        } else {
+            return redirect('/');
         }
         //*Тут проверка на права*/
-
-
     }
 }

@@ -11,11 +11,14 @@
             <input type="text" class="form-control" id="name" value="{{$product->name}}" name="name"
                    placeholder="Название продукта" required>
         </div>
-        <div class="form-group">
-            <label for="art">Имя:</label>
-            <input type="text" class="form-control" id="art" name="art"  value="{{$product->art}}" placeholder="Артикул продукта" min="10"
-                   required>
-        </div>
+        @if($role=auth()->user()->isAdmin())
+            <div class="form-group">
+                <label for="art">Артикул:</label>
+                <input type="text" class="form-control" id="art" name="art" value="{{$product->art}}"
+                       placeholder="Артикул продукта" min="10"
+                       required>
+            </div>
+        @endif
 
         <button type="submit" class="btn btn-primary">Создать продукт</button>
         <a href="{{route('products')}}" class="btn btn-secondary">Назад</a>

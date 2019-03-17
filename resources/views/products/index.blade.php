@@ -12,7 +12,9 @@
                 <tr>
                     <td>{{$product->name}}</td>
                     <td>{{$product->art}}</td>
-                    <td><a class="btn-primary" href="{{route("edit",['id'=>$product->id])}}">Редактировать</a></td>
+                    @if (Auth::check())
+                        <td><a class="btn-primary" href="{{route("edit",['id'=>$product->id])}}">Редактировать</a></td>
+                    @endif
                 </tr>
             @endforeach
         </table>
