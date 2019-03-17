@@ -22,5 +22,7 @@ Route::get('/product/create', 'ProductController@create')->name('create');
 
 Route::post('/product/store', 'ProductController@store')->name('storeProduct')->middleware('auth');
 
-Route::get('/product/{id}/edit', 'ProductController@edit')->name('edit');
+Route::get('/product/{id}/edit', 'ProductController@edit')->name('edit')->middleware('auth');
+
+Route::post('/product/saveEdit', 'ProductController@store')->name('saveEdit')->middleware('auth');
 

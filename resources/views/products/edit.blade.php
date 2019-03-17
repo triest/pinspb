@@ -1,8 +1,8 @@
-@extends('layouts.products', ['title' => "Создать продукт"])
+@extends('layouts.products', ['title' => "Редактировать продукт"])
 
 
 @section('content')
-    <form action="{{route('storeProduct')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('saveEdit')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <input type="hidden" name="id" id="id" value="{{$product->id}}">
 
@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
             <label for="art">Имя:</label>
-            <input type="text" class="form-control" id="art" name="art" placeholder="Артикул продукта" min="10"
+            <input type="text" class="form-control" id="art" name="art"  value="{{$product->art}}" placeholder="Артикул продукта" min="10"
                    required>
         </div>
 
