@@ -23,6 +23,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 Vue.component('products-list', require('./components/ProductsList.vue').default);
 
+//Vue.component('users', require('./components/UsersList.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -32,7 +34,12 @@ Vue.component('products-list', require('./components/ProductsList.vue').default)
 const app = new Vue({
     el: '#app'
 });
+/*
+const users = new Vue({
+    el: '#users'
+});
 
 const productslist = new Vue({
     el: '#productslist'
 });
+*/

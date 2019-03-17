@@ -26,3 +26,6 @@ Route::get('/product/{id}/edit', 'ProductController@edit')->name('edit')->middle
 
 Route::post('/product/saveEdit', 'ProductController@store')->name('saveEdit')->middleware('auth');
 
+Route::get('/users/roles', 'UserController@index')->name('admin')->middleware('admin');
+
+Route::get('/users/list', 'UserController@list')->name('admin')->middleware('admin');
